@@ -9,10 +9,18 @@
   <meta name="pages" content="SitePoint">
 
   <style>
-
-    h1 {
-      font-size: large;
-      color: black;
+    #headerPage {
+      width: 50%;
+      margin: 0 auto;
+    }
+    h1, p {
+      text-align: center;
+    }
+    #bodyPage {
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 30px;
     }
 
   </style>
@@ -21,12 +29,20 @@
 
 <body>
 
-  <h1>My pages</h1>
-  <p>This are my projects:</p>
-  <a href='https://jsfiddle.net/5zhm7gsu/'>Solar system</a> <br />
-  <a href='https://jsfiddle.net/yzdcLjq2/2/'>Colored balls</a> <br />
-  <a href='https://jsfiddle.net/g4k0by3h/'>Particle movement</a> <br />
-  <a href='https://jsfiddle.net/g4k0by3h/1/'>Game</a>
+  <div id='headerPage'>
+    <h1>My pages</h1>
+    <p>Hi! This is my new website.</p>
+  </div>
+
+  <div id='bodyPage'>
+    <p>This are my projects:</p> <br />
+
+    <img src="solar system.png" alt="Solar system" width="50" height="60">
+    <a href='https://jsfiddle.net/5zhm7gsu/'>Solar system</a> <br />
+    <a href='https://jsfiddle.net/yzdcLjq2/2/'>Colored balls</a> <br />
+    <a href='https://jsfiddle.net/g4k0by3h/'>Particle movement</a> <br />
+    <a href='https://jsfiddle.net/g4k0by3h/1/'>Game</a>
+  </div>
 
  <script type="text/javascript">
     
