@@ -20,7 +20,12 @@
       height: 60px;
       margin-left: 200px;
     }
-    h1, p {
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      padding-top: 30px;
       text-align: center;
     }
     .projects {
@@ -33,6 +38,20 @@
       text-align: center;
       margin-top: 50px;
     }
+    a {
+      margin: 0 100px;
+      text-decoration: none;
+    }
+    .containersProjects div{
+      margin-top: 20px;
+    }
+
+    img:hover {
+      width: 120px;
+      height: 170px;
+      transition: 1s;
+    }
+    
   </style>
 
 </head>
@@ -48,19 +67,28 @@
   </header>
 
   <div class='projects'>
-    <p>These are my projects:</p> <br />
-
-    <img src="https://butterfly-123.github.io/image/solar_system.png" alt="Solar system" width="50" height="60">
-    <a href='https://jsfiddle.net/5zhm7gsu/'>Solar system</a> <br />
-
-    <img src="https://butterfly-123.github.io/image/colored_balls.png" alt="Colored balls" width="50" height="60">
-    <a href='https://jsfiddle.net/yzdcLjq2/2/'>Colored balls</a> <br />
-
-    <img src="https://butterfly-123.github.io/image/particle_movement.png" alt="Particle movement" width="50" height="60">
-    <a href='https://jsfiddle.net/g4k0by3h/'>Particle movement</a> <br />
-
-    <img src="https://butterfly-123.github.io/image/game.png" alt="Game" width="50" height="60">
-    <a href='https://jsfiddle.net/g4k0by3h/1/'>Game</a>
+    <h3>These are my projects:</h3> <br />
+    <div class='containersProjects'>
+      <div>
+        <img src="https://butterfly-123.github.io/image/solar_system.png" alt="Solar system" width="100" height="150">
+        <a href='https://jsfiddle.net/5zhm7gsu/'>Solar system</a>
+      </div>
+      
+      <div>
+        <a href='https://jsfiddle.net/yzdcLjq2/2/'>Colored balls</a> 
+        <img src="https://butterfly-123.github.io/image/colored_balls.png" alt="Colored balls" width="100" height="150">
+      </div>
+      
+      <div>
+        <img src="https://butterfly-123.github.io/image/particle_movement.png" alt="Particle movement" width="100" height="150">
+        <a href='https://jsfiddle.net/g4k0by3h/'>Particle movement</a> 
+      </div>
+      
+      <div>
+        <a href='https://jsfiddle.net/g4k0by3h/1/'>Game</a>
+        <img src="https://butterfly-123.github.io/image/game.png" alt="Game" width="100" height="150">
+      </div>
+    </div>
   </div>
 
 
