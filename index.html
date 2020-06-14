@@ -1,99 +1,402 @@
 <!doctype html>
 
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
 
   <title>My Pages</title>
-  <meta name="description" content="My Pages">
-  <meta name="pages" content="SitePoint">
+  <meta name='description' content='My Pages'>
+  <meta name='pages' content='SitePoint'>
 
   <style>
-    header {
-      width: 50%;
-      margin: 0 auto;
+    .example_c {
+      float: none;
+      color: #494949 !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #ffffff;
+      padding: 20px;
+      border: 4px solid #ff8800!important;
+      display: inline-block;
+      transition: all 0.4s ease 0s;
     }
-    .my_image {
-      border: 1px solid black;
-      float: left;
-      width: 50px;
-      height: 60px;
-      margin-left: 200px;
+
+    .example_c:hover {
+      color: #ffffff !important;
+      background: #ff8800;
+      border-color: #ff8800 !important;
+      transition: all 0.4s ease 0s;
     }
+
+    body {
+      background-color: white;
+      min-height: 200vh;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    nav {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      color: black;
+      background-color: #b3c7dc;
+      height: 70px;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: right;
+      list-style: none;
+    }
+
+    .nav-list {
+      text-decoration: none;
+      float: right;
+      padding-left: 100px;
+    }
+
+    .nav-list:hover {
+      color: #ff8800;
+      transition: 1s;
+    }
+
     h1 {
+      font-size: 50px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
       text-align: center;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      color: #ff8800;
     }
 
     p {
-      padding-top: 30px;
+      line-height: 50px;
       text-align: center;
     }
-    .projects {
-      width: 50%;
-      margin: 0 auto;
-      text-align: center;
-      margin-top: 100px;
-    }
-    .about_me {
-      text-align: center;
-      margin-top: 50px;
-    }
+
     a {
-      margin: 0 100px;
-      text-decoration: none;
+      color: black;
     }
-    .containersProjects div{
-      margin-top: 20px;
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* nav.sticky {
+      background-color: #fff;
+      padding-right: 50px;
+    } */
+  
+    .container-for-centered-div {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container-for-centered-div {
+      padding: .5rem;
+    }
+
+    .container-for-centered-div .centered-div {
+      max-width: 900px;
+      text-align: center;
+      margin: .25rem;
+      padding: .25rem;
+    }
+
+    .divs-inline {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .divs-inline .child {
+      flex: 1;
+      min-width: 33%;
+      border: 5px solid white;
+    }
+
+    @media (max-width: 850px) {
+      .divs-inline .child {
+        min-width: 50%; 
+      }
+    }
+
+    @media (max-width: 800px) {
+      .divs-inline .child {
+        min-width: 100%; 
+      }
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
     }
 
     img:hover {
-      width: 120px;
-      height: 170px;
-      transition: 1s;
+      width: 320px;
+      height: 320px;
+      transition: 1.5s;
+      object-fit: cover;
     }
-    
+
+    .home-area {
+      height: 700px;
+      padding-top: 50px;
+      background: #73cff8;
+    }
+
+    .about-area {
+      padding-top: 50px;
+      background: #ffe2d2;
+      height: 700px;
+    }
+
+    .project-area {
+      padding-top: 50px;
+      background-color: #668eb9;
+      height: auto;
+    }
+
+    .child {
+      background-color: white;
+      margin: 10px;
+    }
+
+    .myCv {
+      margin-top: 50px;
+    }
+
+    .bg{
+      overflow:hidden;
+      background: #73cff8;
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+    }
+    .mountain, .mountain-two, .mountain-three {
+      position: absolute;
+      bottom: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 180px solid #7ac1e4;
+      z-index: 1;
+    }
+    .mountain-two { 
+      left: 80px;
+      bottom: -20px;
+      opacity: .3;
+      z-index: 0;
+    }
+    .mountain-three {
+      left: -60px;
+      bottom:-10px;
+      opacity: .5;
+      z-index: 0;
+    }
+    .mountain-top {
+      position: absolute;
+      right: -65px;
+      border-left: 65px solid transparent;
+      border-right: 65px solid transparent;
+      border-bottom: 77px solid #ceeaf6;
+      z-index: 2;
+    }
+    .mountain-cap-1, .mountain-cap-2, .mountain-cap-3 {
+      position: absolute;
+      top: 70px;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 25px solid #ceeaf6;
+    }
+    .mountain-cap-1 { left: -55px; }
+    .mountain-cap-2 { left: -25px; }
+    .mountain-cap-3 { left: 5px; }
+    .cloud, .cloud:before, .cloud:after {
+      position: absolute;
+      width: 70px;
+      height: 30px;
+      background: #fff;
+      -webkit-border-radius: 100px / 50px;
+      border-radius: 100px / 50px;
+    }
+    .cloud { 
+      bottom: 100px;
+      -webkit-animation: cloud 50s infinite linear;
+              animation: cloud 50s infinite linear;
+    }
+    @-webkit-keyframes cloud {
+        0%   { left: -100px; }
+        100% { left: 1000px; } 
+    }
+    @keyframes cloud {
+      
+        0%   { left: -100px; }
+        100% { left: 1000px; } 
+    }
+    .cloud:before {
+      content: '';
+      left: 50px;
+    }
+    .cloud:after {
+      content: '';
+      left: 25px;
+      top: -10px;
+    }
+
   </style>
 
 </head>
 
 <body>
+  <nav>
+    <ul class='nav'>
+      <li><a class="nav-list" href='#home'>Home</a></li>
+      <li><a class="nav-list" href='#about'>About</a></li>
+      <li><a class="nav-list" href='#project'>Project</a></li>
+    </ul>
+  </nav>
 
-  <header>
-    <h1>My pages</h1>
-    <div class='about_me'>
-      <img class='my_image' src="" alt="My image">
-      <p>Hi! This is my new website.</p>
-    </div>
-  </header>
-
-  <div class='projects'>
-    <h3>These are my projects:</h3> <br />
-    <div class='containersProjects'>
-      <div>
-        <img src="https://butterfly-123.github.io/image/solar_system.png" alt="Solar system" width="100" height="150">
-        <a href='https://jsfiddle.net/5zhm7gsu/'>Solar system</a>
-      </div>
-      
-      <div>
-        <a href='https://jsfiddle.net/yzdcLjq2/2/'>Colored balls</a> 
-        <img src="https://butterfly-123.github.io/image/colored_balls.png" alt="Colored balls" width="100" height="150">
-      </div>
-      
-      <div>
-        <img src="https://butterfly-123.github.io/image/particle_movement.png" alt="Particle movement" width="100" height="150">
-        <a href='https://jsfiddle.net/g4k0by3h/'>Particle movement</a> 
-      </div>
-      
-      <div>
-        <a href='https://jsfiddle.net/g4k0by3h/1/'>Game</a>
-        <img src="https://butterfly-123.github.io/image/game.png" alt="Game" width="100" height="150">
+  <div class="home-area" id="home">
+    <div class="container-for-centered-div">
+      <div class="centered-div">
+        <h1>About me</h1>
+        <p>Welcome to my website</p>
+        <div class="bg">
+          <div class="mountain">
+            <div class="mountain-top">
+              <div class="mountain-cap-1"></div>
+              <div class="mountain-cap-2"></div>
+              <div class="mountain-cap-3"></div>
+            </div>
+            <div class="cloud"></div>
+          </div>
+          <div class="mountain-two">
+            <div class="mountain-top">
+              <div class="mountain-cap-1"></div>
+              <div class="mountain-cap-2"></div>
+              <div class="mountain-cap-3"></div>
+            </div>
+            <div class="cloud"></div>
+          </div>
+           <div class="mountain-three">
+            <div class="mountain-top">
+              <div class="mountain-cap-1"></div>
+              <div class="mountain-cap-2"></div>
+              <div class="mountain-cap-3"></div>
+            </div>
+           <div class="cloud"></div>
+          </div>
+          <div class="cloud"></div>
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="about-area area" id="about">
+    <div class="container-for-centered-div">
+      <div class="centered-div">
+        <h1>About Area</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <div>
+          <a class="example_c myCv" href='https://jsfiddle.net/5zhm7gsu/'>View my CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
- <script type="text/javascript">
-    
+  <div class="project-area area" id="project">
+    <div class="container-for-centered-div">
+      <div class="centered-div">
+        <h1>Project Area</h1>
+        <div class="divs-inline">
+          <div class="child project1">
+            <div class="container-for-centered-div">
+              <div class="centered-div">
+                <div class="containerImg">
+                  <h2>Solar system</h2>
+                  <img src='https://butterfly-123.github.io/image/solar_system.png' alt='Solar system'>
+                </div>
+                <div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div>
+                  <a class="example_c" href='https://jsfiddle.net/5zhm7gsu/'>View on JsFiddle</a>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div class="child project2">
+            <div class="container-for-centered-div">
+              <div class="centered-div">
+                <div class="containerImg">
+                  <h2>Colored balls</h2>
+                  <img src='https://butterfly-123.github.io/image/colored_balls.png' alt='Colored balls'>
+                </div>
+                <div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div>
+                  <a class="example_c" href='https://jsfiddle.net/yzdcLjq2/2/'>View on JsFiddle</a>
+                </div>
+            </div>
+            </div> 
+          </div>
+          <div class="child project3">
+            <div class="container-for-centered-div">
+              <div class="centered-div">
+                <div class="containerImg">
+                  <h2>Particle movement</h2>
+                  <img src='https://butterfly-123.github.io/image/particle_movement.png' alt='Particle movement'>
+                </div>
+                <div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div>
+                  <a class="example_c" href='https://jsfiddle.net/g4k0by3h/'>View on JsFiddle</a>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div class="child project4">
+            <div class="container-for-centered-div">
+              <div class="centered-div">
+                <div class="containerImg">
+                  <h2>Game</h2>
+                  <img src='https://butterfly-123.github.io/image/game.png' alt='Game'>
+                </div>
+                <div>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div>
+                  <a class="example_c" href='https://jsfiddle.net/g4k0by3h/1/'>View on JsFiddle</a>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script type='text/javascript'>
+  // window.addEventListener('scroll', function() {
+  //   var nav = document.querySelector('nav');
+  //   nav.classList.toggle('sticky', window.scrollY > 0);
+  // })
   </script>
+
 </body>
 </html>
