@@ -76,14 +76,16 @@
 
     h2 {
       font-size: 30px;
+      margin-bottom: 30px;
       font-family: Georgia, 'Times New Roman', Times, serif;
       text-align: center;
       color: #ff8800;
     }
 
     p {
-      line-height: 50px;
+      line-height: 30px;
       text-align: center;
+      margin: 30px 0;
     }
 
     a {
@@ -164,14 +166,14 @@
 
     .child {
       background-color: white;
-      margin: 10px;
+      margin: 30px;
     }
 
     .myCv {
       margin-top: 50px;
     }
 
-    .bg{
+    /* .bg{
       overflow:hidden;
       background: #73cff8;
       position: absolute;
@@ -248,7 +250,7 @@
       content: '';
       left: 25px;
       top: -10px;
-    }
+    } */
 
   </style>
 
@@ -264,10 +266,14 @@
   </nav>
 
   <div class="home-area" id="home">
-    <div class="container-for-centered-div">
+    <h1>About me</h1>
+    <p>Welcome to my website</p>
+    <canvas id='canvas' width=1500 height=580 style='background-color: #73cff8;'>
+      
+    </canvas>
+
+    <!-- <div class="container-for-centered-div">
       <div class="centered-div">
-        <h1>About me</h1>
-        <p>Welcome to my website</p>
         <div class="bg">
           <div class="mountain">
             <div class="mountain-top">
@@ -296,7 +302,7 @@
           <div class="cloud"></div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="about-area area" id="about">
@@ -324,7 +330,7 @@
                   <img src='https://butterfly-123.github.io/image/solar_system.png' alt='Solar system'>
                 </div>
                 <div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>This project schows, how fast the planets are moving relative to earth.</p>
                 </div>
                 <div>
                   <a class="example_c" href='https://jsfiddle.net/5zhm7gsu/'>View on JsFiddle</a>
@@ -340,7 +346,7 @@
                   <img src='https://butterfly-123.github.io/image/colored_balls.png' alt='Colored balls'>
                 </div>
                 <div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>It is fun to create moving balls, their random size, color and stroke limit.</p>
                 </div>
                 <div>
                   <a class="example_c" href='https://jsfiddle.net/yzdcLjq2/2/'>View on JsFiddle</a>
@@ -356,7 +362,7 @@
                   <img src='https://butterfly-123.github.io/image/particle_movement.png' alt='Particle movement'>
                 </div>
                 <div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>In this project shows, how particles interact. How does strength and speed work relative to each other.</p>
                 </div>
                 <div>
                   <a class="example_c" href='https://jsfiddle.net/g4k0by3h/'>View on JsFiddle</a>
@@ -372,7 +378,7 @@
                   <img src='https://butterfly-123.github.io/image/game.png' alt='Game'>
                 </div>
                 <div>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>Writing the game from beginning to end is the best way to learn figuring, giving them movement and the right properties. Added to this is the timely appearance of the text. Learning to write code correctly and legibly.</p>
                 </div>
                 <div>
                   <a class="example_c" href='https://jsfiddle.net/g4k0by3h/1/'>View on JsFiddle</a>
@@ -390,6 +396,55 @@
   //   var nav = document.querySelector('nav');
   //   nav.classList.toggle('sticky', window.scrollY > 0);
   // })
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  class Cloud {
+    constructor(x, y, vx, vy, r, color) {
+      this.x = x
+      this.y = y
+      this.vx = vx
+      this.vy = vy
+      this.r = r
+      this.color = color
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+    speedCloud() {
+      this.x += this.vx;
+  	  this.y += this.vy;
+    }
+  }
+
+  const cloud1 = new Cloud(150, 100, 3, 3, 50, "white")
+  const cloud2 = new Cloud(200, 90, 3, 3, 50, "white")
+  const cloud3 = new Cloud(250, 100, 3, 3, 50, "white")
+  const cloud4 = new Cloud(300, 100, 3, 3, 50, "white")
+
+
+  function drawAnimation() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    cloud1.draw()
+    cloud2.draw()
+    cloud3.draw()
+    cloud4.draw()
+    cloud1.speedCloud()
+    cloud2.speedCloud()
+    cloud3.speedCloud()
+    cloud4.speedCloud()
+  }
+
+  function loop() { 
+    //window.requestAnimationFrame(loop); 
+ 		drawAnimation()
+  } 
+
+loop();
+
   </script>
 
 </body>
