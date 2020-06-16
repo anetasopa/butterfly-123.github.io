@@ -410,7 +410,10 @@
     }
     draw() {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+      ctx.arc(this.x + 50, this.y + 10, 50, 0, 2 * Math.PI);
+      ctx.arc(this.x + 100, this.y, 50, 0, 2 * Math.PI);
+      ctx.arc(this.x + 150, this.y + 10, 50, 0, 2 * Math.PI);
+      ctx.arc(this.x + 200, this.y, 50, 0, 2 * Math.PI);
       ctx.fillStyle = this.color;
       ctx.fill();
     }
@@ -420,26 +423,17 @@
     }
   }
 
-  const cloud1 = new Cloud(150, 100, 3, 3, 50, "white")
-  const cloud2 = new Cloud(200, 90, 3, 3, 50, "white")
-  const cloud3 = new Cloud(250, 100, 3, 3, 50, "white")
-  const cloud4 = new Cloud(300, 100, 3, 3, 50, "white")
-
+  const cloud = new Cloud(10, 100, 1, 0, 50, "white")
 
   function drawAnimation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    cloud1.draw()
-    cloud2.draw()
-    cloud3.draw()
-    cloud4.draw()
-    cloud1.speedCloud()
-    cloud2.speedCloud()
-    cloud3.speedCloud()
-    cloud4.speedCloud()
+    cloud.draw()
+    cloud.speedCloud()
+
   }
 
   function loop() { 
-    //window.requestAnimationFrame(loop); 
+    window.requestAnimationFrame(loop); 
  		drawAnimation()
   } 
 
