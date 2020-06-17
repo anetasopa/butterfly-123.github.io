@@ -151,7 +151,7 @@
       padding-top: 50px;
       background: #73cff8;
     }
-
+    
     .about-area {
       padding-top: 50px;
       background: #ffe2d2;
@@ -268,9 +268,7 @@
   <div class="home-area" id="home">
     <h1>About me</h1>
     <p>Welcome to my website</p>
-    <canvas id='canvas' width=1500 height=580 style='background-color: #73cff8;'>
-      
-    </canvas>
+    <canvas id='canvas' width=1500 height=580 style='background-color: #73cff8'></canvas>
 
     <!-- <div class="container-for-centered-div">
       <div class="centered-div">
@@ -408,28 +406,242 @@
       this.r = r
       this.color = color
     }
-    draw() {
+    draw(scale) {
+      // 360(stopnie) => 2 * Math.PI(RADIANY) = 6.2
+      // 180 => 3.14
+
       ctx.beginPath();
-      ctx.arc(this.x + 50, this.y + 10, 50, 0, 2 * Math.PI);
-      ctx.arc(this.x + 100, this.y, 50, 0, 2 * Math.PI);
-      ctx.arc(this.x + 150, this.y + 10, 50, 0, 2 * Math.PI);
-      ctx.arc(this.x + 200, this.y, 50, 0, 2 * Math.PI);
       ctx.fillStyle = this.color;
+      ctx.fillRect(this.x, this.y + 20 * scale, 200 * scale, 50 * scale);
+      ctx.arc(this.x, this.y + 20 * scale, 50 * scale, 0, 2 * Math.PI);
+      ctx.arc(this.x + 60 * scale, this.y - 10 * scale, 50 * scale, 0, 2 * Math.PI);
+      ctx.arc(this.x + 130 * scale, this.y - 25 * scale, 50 * scale, 0, 2 * Math.PI);
+      ctx.arc(this.x + 200 * scale, this.y + 20 * scale, 50 * scale, 0, 2 * Math.PI);
       ctx.fill();
     }
     speedCloud() {
       this.x += this.vx;
   	  this.y += this.vy;
+
+      if (this.x > canvas.width - 200) {
+        this.x = -100
+      }
     }
   }
 
-  const cloud = new Cloud(10, 100, 1, 0, 50, "white")
+  let SCALE = 0.1
+  let OFFSET_X = 300;
+  let OFFSET_Y = 160;
+  let width = canvas.width * SCALE
+  let height = canvas.height * SCALE
+
+  class Sun {
+    constructor(x, y, vx, vy, r, R, color) {
+      this.x = x
+      this.y = y
+      this.vx = vx
+      this.vy = vy
+      this.r = r
+      this.color = color
+      this.accelerationX = vx
+      this.accelerationY = vy
+      this.R = R
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.fillStyle = sun.color;
+      ctx.arc(sun.x, sun.y, sun.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+    positionSun() {
+      this.vx = this.accelerationX + this.vx;
+      this.vy = this.accelerationY + this.vy;
+      this.x = -this.R * Math.sin(this.vx) + 700;
+      this.y = this.R * Math.cos(this.vy) + 800;
+    }
+  }
+
+  class Moon {
+    constructor(x, y, vx, vy, r, R, color) {
+      this.x = x
+      this.y = y
+      this.vx = vx
+      this.vy = vy
+      this.r = r
+      this.color = color
+      this.accelerationX = vx
+      this.accelerationY = vy
+      this.R = R
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.fillStyle = moon.color;
+      ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+    positionMoon() {
+      this.vx = this.accelerationX + this.vx;
+      this.vy = this.accelerationY + this.vy;
+      const angle = Math.PI/2 + Math.PI/2
+      this.x = -this.R * Math.sin(this.vx + angle ) + 700;
+      this.y = this.R * Math.cos(this.vy + angle) + 800;
+    }
+  }
+
+  class Mountain {
+    constructor(x, y, x2, y2, x3, y3, color) {
+      this.x = x
+      this.y = y
+      this.x2 = x2
+      this.y2 = y2
+      this.x3 = x3
+      this.y3 = y3
+      this.color = color
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.moveTo(this.x, this.y); 
+      ctx.lineTo(this.x2, this.y2); 
+      ctx.lineTo(this.x3, this.y3); 
+      ctx.fill();
+
+
+      const paddingTop = -600;
+      const paddingX = -600;
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      //ctx.arc(this.x3, this.y3, 5, 0, Math.PI*2);
+      //ctx.arc(this.x2, this.y2, 5, 0, Math.PI*2);
+      
+      const scale = 0.4
+
+      ctx.moveTo(this.x3, this.y3);
+
+      const x2 = this.x3 + (this.x2 - this.x3) * scale
+      const y2 = this.y3 + (this.y2 - this.y3) * scale
+      ctx.lineTo(x2, y2)
+
+      const x2X3 = this.x3 + (this.x2 - this.x3) * scale/2.5
+      const y2Y3 = this.y3 + (this.y2 - this.y3) * scale/1.5
+      ctx.lineTo(x2X3, y2Y3)
+
+      ctx.lineTo(this.x3, y2)
+
+      const x3X4 = this.x3 - (this.x2 - this.x3) * scale/2.5
+      const y3Y4 = this.y3 + (this.y2 - this.y3) * scale/1.5
+      ctx.lineTo(x3X4, y3Y4)
+
+
+      const x3 = this.x3 - (this.x3 - this.x) * scale
+      const y3 = this.y3 + (this.y - this.y3) * scale
+      ctx.lineTo(x3, y3)
+
+      ctx.closePath();
+      ctx.fill();
+    }
+  }
+
+  function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min) ) + min;
+    }
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function createdStars(options) {
+    var createdStar = {
+      x: options.x,
+      y: options.y,
+      radius: options.radius,
+      color: options.color,
+      draw: function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    
+    return createdStar;
+  }
+
+  let stars = [];
+  for (let i=0; i<500; i++) {
+    const options = {
+      x: getRndInteger(0, canvas.width),
+      y: getRndInteger(0, canvas.height),
+      radius: getRndInteger(0.5, 2),
+      color: getRandomColor()
+    }
+    const createStars = createdStars(options);
+
+    stars.push(createStars);
+  }
+
+  const cloud = new Cloud(50, 100, 1, 0, 50, "#F0F8FF");
+  const cloud2 = new Cloud(200, 300, 1, 0, 50, "white");
+  const sun = new Sun(700, 200, 0.005, 0.005, 70, 700, "#FFFF00");
+  const moon = new Moon(700, 200, 0.005, 0.005, 50, 700, "#B0E0E6");
+  const mountain = new Mountain(20, 600, 430, 600, 230, 200, "#6495ED");
+  const mountain2 = new Mountain(120, 600, 520, 600, 320, 250, "#AFEEEE");
+  const mountain3 = new Mountain(200, 600, 600, 600, 400, 350, "#B0E0E6");
+
+
+  const clouds = [];
+
+  for (let i=0; i<70; i++) {
+    clouds.push({
+      scale: Math.floor(Math.random() * 10)/20,
+      cloud: new Cloud(
+        Math.floor(Math.random() * 1000) + 100, 
+        Math.floor(Math.random() * 300) + 50, 
+        Math.floor(Math.random() * 10)/20, 
+        0, 
+        Math.floor(Math.random() * 50) + 10, 
+        ["white", '#F0F8FF'][Math.floor(Math.random() * 2)]
+      )
+    })
+  }
 
   function drawAnimation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    cloud.draw()
-    cloud.speedCloud()
 
+    if (sun.y > 700) {
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const moreStars = stars;
+        moreStars.forEach((createdStars) => {
+          createdStars.draw()
+        })
+    } else {
+      ctx.fillStyle = "#73cff8";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      clouds.forEach((item) => {
+        const cloud = item.cloud
+        const scale = item.scale
+
+        cloud.draw(scale)
+        cloud.speedCloud()
+      })
+    }
+
+    
+    sun.draw()
+    sun.positionSun()
+    moon.draw()
+    moon.positionMoon()
+    mountain2.draw()
+    mountain.draw()
+    mountain3.draw()
   }
 
   function loop() { 
@@ -437,7 +649,22 @@
  		drawAnimation()
   } 
 
-loop();
+  canvas.addEventListener('click', function(event) { 
+    clouds.push({
+      scale: Math.floor(Math.random() * 10)/20,
+      cloud: new Cloud(
+        event.x, 
+        event.y - 250, 
+        Math.floor(Math.random() * 10)/20, 
+        0, 
+        Math.floor(Math.random() * 50) + 10, 
+        ["white", '#F0F8FF'][Math.floor(Math.random() * 2)]
+      )
+    })
+
+  }, false);
+
+  loop();
 
   </script>
 
