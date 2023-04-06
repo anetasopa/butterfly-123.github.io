@@ -9,248 +9,212 @@
   <meta name='pages' content='SitePoint'>
 
   <style>
-    .example_c {
-      float: none;
-      color: #494949 !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ffffff;
-      padding: 20px;
-      border: 4px solid #ff8800!important;
-      display: inline-block;
-      transition: all 0.4s ease 0s;
-    }
-
-    .example_c:hover {
-      color: #ffffff !important;
-      background: #ff8800;
-      border-color: #ff8800 !important;
-      transition: all 0.4s ease 0s;
-    }
-
-    body {
-      background-color: white;
-      min-height: 200vh;
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    body {
+      background-image: url("image/background.jpg");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      color: #F1F1E6;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     }
 
     nav {
       position: fixed;
-      display: flex;
+      top: 0;
       justify-content: center;
       align-items: center;
-      flex-direction: row;
-      flex-wrap: wrap;
       width: 100%;
-      color: black;
-      background-color: #b3c7dc;
-      height: 70px;
-      z-index: 1;
+      margin-top: 20px;
     }
 
-    .nav {
+    .container-nav {
       display: flex;
       justify-content: right;
       list-style: none;
+      margin-right: 50px;
     }
 
     .nav-list {
       text-decoration: none;
       float: right;
       padding-left: 100px;
+      color: #F1F1E6;
     }
 
-    .nav-list:hover {
-      color: #ff8800;
-      transition: 1s;
+    .nav-list span:after {
+      display: block;
+      content: '';
+      border-bottom: solid 2px #FF8847;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    .nav-list span:hover:after {
+      transform: scaleX(1); transform-origin: 0% 100%;
     }
 
     h1 {
-      font-size: 50px;
-      font-family: Georgia, 'Times New Roman', Times, serif;
       text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      content: '';
+      border-bottom: solid 2px #FF8847;
     }
 
     h2 {
-      font-size: 30px;
-      margin-bottom: 30px;
-      font-family: Georgia, 'Times New Roman', Times, serif;
       text-align: center;
-      color: #ff8800;
     }
 
     p {
       line-height: 30px;
       text-align: center;
-      margin: 30px 0;
+      margin-bottom: 30px;
     }
 
     a {
-      color: black;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* nav.sticky {
-      background-color: #fff;
-      padding-right: 50px;
-    } */
-  
-    .container-for-centered-div {
-      display: flex;
-      justify-content: center;
-    }
-
-    .container-for-centered-div {
-      padding: .5rem;
-    }
-
-    .container-for-centered-div .centered-div {
-      max-width: 900px;
-      text-align: center;
-      margin: .25rem;
-      padding: .25rem;
-    }
-
-    .divs-inline {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .divs-inline .child {
-      flex: 1;
-      min-width: 33%;
-      border: 5px solid white;
-    }
-
-    @media (max-width: 850px) {
-      .divs-inline .child {
-        min-width: 50%; 
-      }
-    }
-
-    @media (max-width: 800px) {
-      .divs-inline .child {
-        min-width: 100%; 
-      }
+      text-decoration: none;
+      color: #005052;
     }
 
     img {
-      width: 300px;
-      height: 300px;
-      box-shadow: 5px 5px 15px 15px #b3c7dc;
+      width: 200px;
+      height: 200px;
+      box-shadow: rgba(255, 136, 71, 0.55) 0px 5px 15px;
+      border-radius: 5px;
     }
 
-    .home-area {
-      height: 700px;
-      padding-top: 50px;
-      background: #73cff8;
-    }
-    
-    .about-area {
-      padding-top: 50px;
-      background: #ffe2d2;
-      height: 700px;
+    .button {
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 12px 24px;
+      border: 0;
+      color: #000021;
+      background: #FF8847;
+      line-height: 1.15;
+      font-size: 16px;
+      text-decoration: none;
+      color: #005052;
     }
 
-    .project-area {
-      padding-top: 50px;
-      background-color: #668eb9;
+    .button:hover {
+        transition: all .1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #FF8847;
+    }
+
+    .container-button {
+      text-align: center;
+    }
+
+    .container-home {
+      text-align: center;
+      margin-top: 70px !important;
+      width: auto;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+    }
+
+    .container-home img {
+      box-shadow: none;
+      width: 500px;
+      height: 500px;
+      filter: opacity(0.5) drop-shadow(0 0 #00132F);
+    }
+
+    .container-home h1 {
+      margin-top: 100px;
+      margin-bottom: 70px;
+      font-size: xxx-large;
+    }
+
+    .container-home h1 + p {
+      color: #FF8847;
+    }
+
+    .container-home p {
+      font-size: xx-large;
+    }
+
+    .container-about {
+      padding: 150px;
+    }
+
+    .container-about p {
+      margin: 0 auto;
+      width: 80%;
+      padding-bottom: 60px;
+      padding-top: 30px;
+      line-height: 40px;
+    }
+
+    .container-projects {
+      width: auto;
+      height: auto;
+      padding: 50px;
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    .text {
+      width: 40%;
       height: auto;
     }
 
-    .child {
-      background-color: white;
-      margin: 30px;
+    .text p {
+      font-size: 0.8rem;
     }
 
-    .myCv {
-      margin-top: 50px;
+    .container-button-project {
+      text-align: center;
     }
 
-    /* .bg{
-      overflow:hidden;
-      background: #73cff8;
-      position: absolute;
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
+    .container-img-project {
+      top: 50%;
     }
-    .mountain, .mountain-two, .mountain-three {
-      position: absolute;
-      bottom: 0;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-bottom: 180px solid #7ac1e4;
-      z-index: 1;
+
+    .img {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      mix-blend-mode: multiply;
+
     }
-    .mountain-two { 
-      left: 80px;
-      bottom: -20px;
-      opacity: .3;
-      z-index: 0;
+
+    .main {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px;
+      background: #F1F1E6;
+      border-radius: 5px;
+      margin-bottom: 70px;
     }
-    .mountain-three {
-      left: -60px;
-      bottom:-10px;
-      opacity: .5;
-      z-index: 0;
+
+    .main p {
+      color: #005052;
+      margin-top: 20px;
     }
-    .mountain-top {
-      position: absolute;
-      right: -65px;
-      border-left: 65px solid transparent;
-      border-right: 65px solid transparent;
-      border-bottom: 77px solid #ceeaf6;
-      z-index: 2;
+
+    .main h2 {
+      color: #005052;
+      margin-top: 10px;
     }
-    .mountain-cap-1, .mountain-cap-2, .mountain-cap-3 {
-      position: absolute;
-      top: 70px;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-top: 25px solid #ceeaf6;
+
+    #projects {
+      padding-top: 70px;
     }
-    .mountain-cap-1 { left: -55px; }
-    .mountain-cap-2 { left: -25px; }
-    .mountain-cap-3 { left: 5px; }
-    .cloud, .cloud:before, .cloud:after {
-      position: absolute;
-      width: 70px;
-      height: 30px;
-      background: #fff;
-      -webkit-border-radius: 100px / 50px;
-      border-radius: 100px / 50px;
-    }
-    .cloud { 
-      bottom: 100px;
-      -webkit-animation: cloud 50s infinite linear;
-              animation: cloud 50s infinite linear;
-    }
-    @-webkit-keyframes cloud {
-        0%   { left: -100px; }
-        100% { left: 1000px; } 
-    }
-    @keyframes cloud {
-      
-        0%   { left: -100px; }
-        100% { left: 1000px; } 
-    }
-    .cloud:before {
-      content: '';
-      left: 50px;
-    }
-    .cloud:after {
-      content: '';
-      left: 25px;
-      top: -10px;
-    } */
+
 
   </style>
 
@@ -258,415 +222,169 @@
 
 <body>
   <nav>
-    <ul class='nav'>
-      <li><a class="nav-list" href='#home'>Home</a></li>
-      <li><a class="nav-list" href='#about'>About</a></li>
-      <li><a class="nav-list" href='#project'>Project</a></li>
+    <ul class='container-nav'>
+      <li>
+        <a class="nav-list" href='#home'>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-list" href='#about'>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-list" href='#projects'>
+          <span>Projects</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-list" href='#contact'>
+          <span>Contact</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
-  <div class="home-area" id="home">
-    <h1>About me</h1>
-    <p>Welcome to my website</p>
-    <canvas id='canvas' width=1500 height=580 style='background-color: #73cff8'></canvas>
-
-    <!-- <div class="container-for-centered-div">
-      <div class="centered-div">
-        <div class="bg">
-          <div class="mountain">
-            <div class="mountain-top">
-              <div class="mountain-cap-1"></div>
-              <div class="mountain-cap-2"></div>
-              <div class="mountain-cap-3"></div>
-            </div>
-            <div class="cloud"></div>
-          </div>
-          <div class="mountain-two">
-            <div class="mountain-top">
-              <div class="mountain-cap-1"></div>
-              <div class="mountain-cap-2"></div>
-              <div class="mountain-cap-3"></div>
-            </div>
-            <div class="cloud"></div>
-          </div>
-           <div class="mountain-three">
-            <div class="mountain-top">
-              <div class="mountain-cap-1"></div>
-              <div class="mountain-cap-2"></div>
-              <div class="mountain-cap-3"></div>
-            </div>
-           <div class="cloud"></div>
-          </div>
-          <div class="cloud"></div>
-        </div>
+  <div id="home">
+    <div class="container-home">
+      <div>
+        <h1>
+          <span>
+            Hello There 🖐️
+          </span>
+        </h1>
+        <p>I'm Aneta 👩‍🦰</p>
       </div>
-    </div> -->
+      <div>
+        <img src="image/code.png" />
+      </div>
+    </div>
   </div>
 
-  <div class="about-area area" id="about">
-    <div class="container-for-centered-div">
-      <div class="centered-div">
-        <h1>About Area</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div id="about">
+    <div class="container-about">
+      <h1>
+        <span>
+          About Me 💭
+        </span>
+      </h1>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of. It has survived not only five centuries, but also the leap into electronic typesetting, remaining in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      <div class="container-button">
+        <a class="button" href='https://github.com/butterfly-123'>View my CV</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="projects">
+    <h1>
+      <span>
+        Projects 💭
+      </span>
+    </h1>
+    <div class="container-projects">
+      <div class="main">
+        <div class="text">
+          <h2>
+            <span>
+              Solar System
+            </span>
+          </h2>
+          <p>This project shows, how fast the planets are moving relative to earth.</p>
+          <div class="container-button-project">
+            <a href="https://codesandbox.io/s/solar-system-forked-dd77v7">
+              <button class="button">
+                Open project
+              </a>
+            </button>
+          </div>
+        </div>
+        <div class="container-img-project">
+          <img class="img" src="image/solar_system.png" />
+        </div>
+      </div>
+      <div class="main">
+        <div class="container-img-project">
+          <img class="img" src="image/particle_movement.png" />
+        </div>
+        <div class="text">
+          <h2>
+            <span>
+              Particle Movement
+            </span>
+          </h2>
+          <p>In this project shows, how particles interact. How does strength and speed work relative to each other.</p>
+          <div class="container-button-project">
+            <a href="https://codesandbox.io/s/particle-movement-forked-50qeo6">
+              <button class="button">
+                Open project
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="project-area area" id="project">
+    <h1>Project Area</h1>
+    <div class="divs-inline">
+      <div class="child project1">
+        <div class="container-for-centered-div">
+          <div class="centered-div">
+            <div class="containerImg">
+              <h2>Solar system</h2>
+              <img src='https://butterfly-123.github.io/image/solar_system.png' alt='Solar system'>
+            </div>
+            <div>
+              <p>This project schows, how fast the planets are moving relative to earth.</p>
+            </div>
+            <div>
+              <a class="example_c" href='https://jsfiddle.net/5zhm7gsu/'>View on JsFiddle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="child project2">
+        <div class="containerImg">
+          <h2>Colored balls</h2>
+          <img src='https://butterfly-123.github.io/image/colored_balls.png' alt='Colored balls'>
+        </div>
         <div>
-          <a class="example_c myCv" href='https://jsfiddle.net/5zhm7gsu/'>View my CV</a>
+          <p>It is fun to create moving balls, their random size, color and stroke limit.</p>
+        </div>
+        <div>
+          <a class="example_c" href='https://jsfiddle.net/yzdcLjq2/2/'>View on JsFiddle</a>
+        </div>
+      </div>
+      <div class="child project3">
+        <div class="containerImg">
+          <h2>Particle movement</h2>
+          <img src='https://butterfly-123.github.io/image/particle_movement.png' alt='Particle movement'>
+        </div>
+        <div>
+          <p>In this project shows, how particles interact. How does strength and speed work relative to each other.</p>
+        </div>
+        <div>
+          <a class="example_c" href='https://jsfiddle.net/g4k0by3h/'>View on JsFiddle</a>
+        </div>
+      </div>
+      <div class="child project4">
+        <div class="containerImg">
+          <h2>Game</h2>
+          <img src='https://butterfly-123.github.io/image/game.png' alt='Game'>
+        </div>
+        <div>
+          <p>Writing the game from beginning to end is the best way to learn figuring, giving them movement and the right properties. Added to this is the timely appearance of the text. Learning to write code correctly and legibly.</p>
+        </div>
+        <div>
+          <a class="example_c" href='https://jsfiddle.net/g4k0by3h/1/'>View on JsFiddle</a>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="project-area area" id="project">
-    <div class="container-for-centered-div">
-      <div class="centered-div">
-        <h1>Project Area</h1>
-        <div class="divs-inline">
-          <div class="child project1">
-            <div class="container-for-centered-div">
-              <div class="centered-div">
-                <div class="containerImg">
-                  <h2>Solar system</h2>
-                  <img src='https://butterfly-123.github.io/image/solar_system.png' alt='Solar system'>
-                </div>
-                <div>
-                  <p>This project schows, how fast the planets are moving relative to earth.</p>
-                </div>
-                <div>
-                  <a class="example_c" href='https://jsfiddle.net/5zhm7gsu/'>View on JsFiddle</a>
-                </div>
-              </div>
-            </div> 
-          </div>
-          <div class="child project2">
-            <div class="container-for-centered-div">
-              <div class="centered-div">
-                <div class="containerImg">
-                  <h2>Colored balls</h2>
-                  <img src='https://butterfly-123.github.io/image/colored_balls.png' alt='Colored balls'>
-                </div>
-                <div>
-                  <p>It is fun to create moving balls, their random size, color and stroke limit.</p>
-                </div>
-                <div>
-                  <a class="example_c" href='https://jsfiddle.net/yzdcLjq2/2/'>View on JsFiddle</a>
-                </div>
-            </div>
-            </div> 
-          </div>
-          <div class="child project3">
-            <div class="container-for-centered-div">
-              <div class="centered-div">
-                <div class="containerImg">
-                  <h2>Particle movement</h2>
-                  <img src='https://butterfly-123.github.io/image/particle_movement.png' alt='Particle movement'>
-                </div>
-                <div>
-                  <p>In this project shows, how particles interact. How does strength and speed work relative to each other.</p>
-                </div>
-                <div>
-                  <a class="example_c" href='https://jsfiddle.net/g4k0by3h/'>View on JsFiddle</a>
-                </div>
-              </div>
-            </div> 
-          </div>
-          <div class="child project4">
-            <div class="container-for-centered-div">
-              <div class="centered-div">
-                <div class="containerImg">
-                  <h2>Game</h2>
-                  <img src='https://butterfly-123.github.io/image/game.png' alt='Game'>
-                </div>
-                <div>
-                  <p>Writing the game from beginning to end is the best way to learn figuring, giving them movement and the right properties. Added to this is the timely appearance of the text. Learning to write code correctly and legibly.</p>
-                </div>
-                <div>
-                  <a class="example_c" href='https://jsfiddle.net/g4k0by3h/1/'>View on JsFiddle</a>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
- <script type='text/javascript'>
-  // window.addEventListener('scroll', function() {
-  //   var nav = document.querySelector('nav');
-  //   nav.classList.toggle('sticky', window.scrollY > 0);
-  // })
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-
-  class Cloud {
-    constructor(x, y, vx, vy, r, color) {
-      this.x = x
-      this.y = y
-      this.vx = vx
-      this.vy = vy
-      this.r = r
-      this.color = color
-    }
-    draw(scale) {
-      // 360(stopnie) => 2 * Math.PI(RADIANY) = 6.2
-      // 180 => 3.14
-
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.fillRect(this.x, this.y + 20 * scale, 200 * scale, 50 * scale);
-      ctx.arc(this.x, this.y + 20 * scale, 50 * scale, 0, 2 * Math.PI);
-      ctx.arc(this.x + 60 * scale, this.y - 10 * scale, 50 * scale, 0, 2 * Math.PI);
-      ctx.arc(this.x + 130 * scale, this.y - 25 * scale, 50 * scale, 0, 2 * Math.PI);
-      ctx.arc(this.x + 200 * scale, this.y + 20 * scale, 50 * scale, 0, 2 * Math.PI);
-      ctx.fill();
-    }
-    speedCloud() {
-      this.x += this.vx;
-  	  this.y += this.vy;
-
-      if (this.x > canvas.width - 200) {
-        this.x = -100
-      }
-    }
-  }
-
-  let SCALE = 0.1
-  let OFFSET_X = 300;
-  let OFFSET_Y = 160;
-  let width = canvas.width * SCALE
-  let height = canvas.height * SCALE
-
-  class Sun {
-    constructor(x, y, vx, vy, r, R, color) {
-      this.x = x
-      this.y = y
-      this.vx = vx
-      this.vy = vy
-      this.r = r
-      this.color = color
-      this.accelerationX = vx
-      this.accelerationY = vy
-      this.R = R
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = sun.color;
-      ctx.arc(sun.x, sun.y, sun.r, 0, Math.PI*2);
-      ctx.fill();
-    }
-    positionSun() {
-      this.vx = this.accelerationX + this.vx;
-      this.vy = this.accelerationY + this.vy;
-      this.x = -this.R * Math.sin(this.vx) + 700;
-      this.y = this.R * Math.cos(this.vy) + 800;
-    }
-  }
-
-  class Moon {
-    constructor(x, y, vx, vy, r, R, color) {
-      this.x = x
-      this.y = y
-      this.vx = vx
-      this.vy = vy
-      this.r = r
-      this.color = color
-      this.accelerationX = vx
-      this.accelerationY = vy
-      this.R = R
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = moon.color;
-      ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI*2);
-      ctx.fill();
-    }
-    positionMoon() {
-      this.vx = this.accelerationX + this.vx;
-      this.vy = this.accelerationY + this.vy;
-      const angle = Math.PI/2 + Math.PI/2
-      this.x = -this.R * Math.sin(this.vx + angle ) + 700;
-      this.y = this.R * Math.cos(this.vy + angle) + 800;
-    }
-  }
-
-  class Mountain {
-    constructor(x, y, x2, y2, x3, y3, color) {
-      this.x = x
-      this.y = y
-      this.x2 = x2
-      this.y2 = y2
-      this.x3 = x3
-      this.y3 = y3
-      this.color = color
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.moveTo(this.x, this.y); 
-      ctx.lineTo(this.x2, this.y2); 
-      ctx.lineTo(this.x3, this.y3); 
-      ctx.fill();
-
-
-      const paddingTop = -600;
-      const paddingX = -600;
-      ctx.fillStyle = 'white';
-      ctx.beginPath();
-      //ctx.arc(this.x3, this.y3, 5, 0, Math.PI*2);
-      //ctx.arc(this.x2, this.y2, 5, 0, Math.PI*2);
-      
-      const scale = 0.4
-
-      ctx.moveTo(this.x3, this.y3);
-
-      const x2 = this.x3 + (this.x2 - this.x3) * scale
-      const y2 = this.y3 + (this.y2 - this.y3) * scale
-      ctx.lineTo(x2, y2)
-
-      const x2X3 = this.x3 + (this.x2 - this.x3) * scale/2.5
-      const y2Y3 = this.y3 + (this.y2 - this.y3) * scale/1.5
-      ctx.lineTo(x2X3, y2Y3)
-
-      ctx.lineTo(this.x3, y2)
-
-      const x3X4 = this.x3 - (this.x2 - this.x3) * scale/2.5
-      const y3Y4 = this.y3 + (this.y2 - this.y3) * scale/1.5
-      ctx.lineTo(x3X4, y3Y4)
-
-
-      const x3 = this.x3 - (this.x3 - this.x) * scale
-      const y3 = this.y3 + (this.y - this.y3) * scale
-      ctx.lineTo(x3, y3)
-
-      ctx.closePath();
-      ctx.fill();
-    }
-  }
-
-  function getRndInteger(min, max) {
-      return Math.floor(Math.random() * (max - min) ) + min;
-    }
-
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  function createdStars(options) {
-    var createdStar = {
-      x: options.x,
-      y: options.y,
-      radius: options.radius,
-      color: options.color,
-      draw: function() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-    }
-    
-    return createdStar;
-  }
-
-  let stars = [];
-  for (let i=0; i<500; i++) {
-    const options = {
-      x: getRndInteger(0, canvas.width),
-      y: getRndInteger(0, canvas.height),
-      radius: getRndInteger(0.5, 2),
-      color: getRandomColor()
-    }
-    const createStars = createdStars(options);
-
-    stars.push(createStars);
-  }
-
-  const cloud = new Cloud(50, 100, 1, 0, 50, "#F0F8FF");
-  const cloud2 = new Cloud(200, 300, 1, 0, 50, "white");
-  const sun = new Sun(700, 200, 0.005, 0.005, 70, 700, "#FFFF00");
-  const moon = new Moon(700, 200, 0.005, 0.005, 50, 700, "#B0E0E6");
-  const mountain = new Mountain(20, 600, 430, 600, 230, 200, "#6495ED");
-  const mountain2 = new Mountain(120, 600, 520, 600, 320, 250, "#AFEEEE");
-  const mountain3 = new Mountain(200, 600, 600, 600, 400, 350, "#B0E0E6");
-
-
-  const clouds = [];
-
-  for (let i=0; i<70; i++) {
-    clouds.push({
-      scale: Math.floor(Math.random() * 10)/20,
-      cloud: new Cloud(
-        Math.floor(Math.random() * 1000) + 100, 
-        Math.floor(Math.random() * 300) + 50, 
-        Math.floor(Math.random() * 10)/20, 
-        0, 
-        Math.floor(Math.random() * 50) + 10, 
-        ["white", '#F0F8FF'][Math.floor(Math.random() * 2)]
-      )
-    })
-  }
-
-  function drawAnimation() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
-
-    if (sun.y > 700) {
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      const moreStars = stars;
-        moreStars.forEach((createdStars) => {
-          createdStars.draw()
-        })
-    } else {
-      ctx.fillStyle = "#73cff8";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      clouds.forEach((item) => {
-        const cloud = item.cloud
-        const scale = item.scale
-
-        cloud.draw(scale)
-        cloud.speedCloud()
-      })
-    }
-
-    
-    sun.draw()
-    sun.positionSun()
-    moon.draw()
-    moon.positionMoon()
-    mountain2.draw()
-    mountain.draw()
-    mountain3.draw()
-  }
-
-  function loop() { 
-    window.requestAnimationFrame(loop); 
- 		drawAnimation()
-  } 
-
-  canvas.addEventListener('click', function(event) { 
-    clouds.push({
-      scale: Math.floor(Math.random() * 10)/20,
-      cloud: new Cloud(
-        event.x, 
-        event.y - 250, 
-        Math.floor(Math.random() * 10)/20, 
-        0, 
-        Math.floor(Math.random() * 50) + 10, 
-        ["white", '#F0F8FF'][Math.floor(Math.random() * 2)]
-      )
-    })
-
-  }, false);
-
-  loop();
-
-  </script>
-
+ <script type='text/javascript'></script>
 </body>
 </html>
